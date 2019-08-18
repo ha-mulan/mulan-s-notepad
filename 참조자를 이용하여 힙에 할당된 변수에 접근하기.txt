@@ -1,0 +1,13 @@
+#include <iostream>
+#define _CRT_SECURE_NO_WARNINGS
+int main(void) {
+	//포인터를 사용하지 않고 힙에 할당된 변수에 접근하기
+	int* ptr=new int;
+	int & ref = *ptr;
+
+		std::cin >> ref;
+		std::cout << ref << "\n";
+
+	delete ptr;
+	return 0;
+}
