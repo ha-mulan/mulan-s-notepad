@@ -1,0 +1,40 @@
+#include <iostream>
+#define _CRT_SECURE_NO_WARNINGS
+int main(void) {
+	//2차원 배열을 new delete로 동적 할당해보자 내가아는 방식 1.
+	int n = 0;
+	std::cin >> n;
+	//방법1
+	int(*ptr)[5] = new int[n][5];//가로의 길이가 정해저야만 할수있다!
+
+	for (int i = 0; i < n; i  ++) {
+		for (int j = 0; j < 5; j++) {
+			std::cin >> ptr[i][j];
+		}
+	}
+	for (int i = 0; i < n; i ++) {
+		for (int j = 0; j < 5; j++) {
+			std::cout<< ptr[i][j];
+		}
+		puts("");
+	}
+	delete[]ptr;
+	//방법2 일차원 배열을 이차원 배열처럼 사용하는법 
+	//공식은 원래 arr[n][m]이면 arr[i]][j]=arr[i*m+j]
+	int r = 0;
+	int c = 0;
+	std::cin >> r >> c;
+	int* parr = new int[r * c];
+	for (int i = 0; i < r; i++) {
+		for (int j = 0; j < c; j++) {
+			std::cin >> parr[i * c + j];
+		}
+	}
+	for (int i = 0; i < r; i++) {
+		for (int j = 0; j < c; j++) {
+			std::cout<< parr[i * c + j];
+		}
+		puts("");
+	}
+	return 0;
+}
